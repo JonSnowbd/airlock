@@ -1,0 +1,36 @@
+[gd_resource type="TileSet" format=3 uid="uid://dxs0pgcgo7oij"]
+
+[ext_resource type="Resource" uid="uid://bfr1kmmyomw7u" path="res://object/room/properties/dirt.tres" id="1_1o3a2"]
+[ext_resource type="Texture2D" uid="uid://c50h6tk6y84vc" path="res://texture/atlas.png" id="1_mtli2"]
+[ext_resource type="Resource" uid="uid://iypng1qafwqv" path="res://object/item/defs/uranium_ore.tres" id="2_7eifu"]
+[ext_resource type="Resource" uid="uid://dpvvywwavmxsr" path="res://object/item/defs/copper_ore.tres" id="3_0m0j7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7sluc"]
+texture = ExtResource("1_mtli2")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+3:0/0 = 0
+0:2/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/custom_data_0 = ExtResource("1_1o3a2")
+1:1/0 = 0
+1:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/custom_data_0 = ExtResource("2_7eifu")
+2:1/0 = 0
+2:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0/custom_data_0 = ExtResource("3_0m0j7")
+
+[resource]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+physics_layer_1/collision_layer = 4
+physics_layer_1/collision_mask = 0
+custom_data_layer_0/name = "properties"
+custom_data_layer_0/type = 24
+sources/0 = SubResource("TileSetAtlasSource_7sluc")

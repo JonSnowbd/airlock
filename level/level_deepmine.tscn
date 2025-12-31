@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dt1oidigkor2p"]
+
+[ext_resource type="Script" uid="uid://dqmegkaqb5a7n" path="res://system/scroller_scene.gd" id="1_mi45q"]
+[ext_resource type="PackedScene" uid="uid://c7blhba54nc6f" path="res://object/room/prefab/deepmine/deepmine_beginning.tscn" id="2_6ho0k"]
+[ext_resource type="PackedScene" uid="uid://cnl3ekjivo67w" path="res://object/window/application_border.tscn" id="3_bhuch"]
+
+[node name="Deepmine" type="Node2D" unique_id=776337769 node_paths=PackedStringArray("cam", "initial_room", "border")]
+texture_filter = 2
+script = ExtResource("1_mi45q")
+cam = NodePath("Camera2D")
+initial_room = NodePath("E32Beginning")
+border = NodePath("Border")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1625970587]
+zoom = Vector2(2, 2)
+limit_enabled = false
+
+[node name="E32Beginning" parent="." unique_id=300847687 instance=ExtResource("2_6ho0k")]
+position = Vector2(-49, -64)
+
+[node name="Border" parent="." unique_id=1354727402 instance=ExtResource("3_bhuch")]

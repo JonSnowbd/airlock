@@ -1,0 +1,58 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[addons]
+
+note/settings="uid://b3dfyg7n0ju6o"
+
+[application]
+
+config/name="Airlock"
+config/description="Name pending, desktop overlay game, auto-miner."
+config/version="a1"
+run/main_scene="uid://k7kf706i87f8"
+config/features=PackedStringArray("4.6", "Mobile")
+run/max_fps=144
+config/icon="res://icon.svg"
+
+[autoload]
+
+note="*uid://b6rrb216vfjay"
+
+[display]
+
+window/size/borderless=true
+window/size/always_on_top=true
+window/size/transparent=true
+window/subwindows/embed_subwindows=false
+window/per_pixel_transparency/allowed=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/note/plugin.cfg")
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Entity"
+2d_physics/layer_3="Relevant"
+2d_physics/layer_4="Meta"
+
+[physics]
+
+common/physics_jitter_fix=0.0
+3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"

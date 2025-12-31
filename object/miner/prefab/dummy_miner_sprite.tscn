@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://jkmwcsa0hg60"]
+
+[ext_resource type="Material" uid="uid://bsgb5jh2g58u6" path="res://texture/material/pixel_skin.tres" id="6_12rj4"]
+[ext_resource type="Texture2D" uid="uid://c50h6tk6y84vc" path="res://texture/atlas.png" id="7_pcywd"]
+
+[node name="Miner" type="Node2D" unique_id=1520594392]
+texture_filter = 1
+
+[node name="Body" type="Sprite2D" parent="." unique_id=509591827]
+material = ExtResource("6_12rj4")
+instance_shader_parameters/skin_color = Color(0.9183626, 0.79002416, 0.8007564, 1)
+position = Vector2(0, -11)
+texture = ExtResource("7_pcywd")
+offset = Vector2(0, 1)
+region_enabled = true
+region_rect = Rect2(446, 47, 7, 12)
+
+[node name="LeftLeg" type="Sprite2D" parent="Body" unique_id=1477576843]
+z_index = -1
+material = ExtResource("6_12rj4")
+instance_shader_parameters/skin_color = Color(0.9183626, 0.79002416, 0.8007564, 1)
+position = Vector2(2, 4)
+texture = ExtResource("7_pcywd")
+offset = Vector2(0, 3)
+region_enabled = true
+region_rect = Rect2(451, 59, 3, 8)
+
+[node name="LeftArm" type="Sprite2D" parent="Body" unique_id=251877979]
+z_index = -1
+material = ExtResource("6_12rj4")
+instance_shader_parameters/skin_color = Color(0.9183626, 0.79002416, 0.8007564, 1)
+position = Vector2(3, -2)
+rotation = -0.24148817
+texture = ExtResource("7_pcywd")
+offset = Vector2(0, 3)
+region_enabled = true
+region_rect = Rect2(454, 49, 4, 9)
+
+[node name="Head" type="Sprite2D" parent="Body" unique_id=830470975]
+material = ExtResource("6_12rj4")
+instance_shader_parameters/skin_color = Color(0.9183626, 0.79002416, 0.8007564, 1)
+position = Vector2(0, -7)
+texture = ExtResource("7_pcywd")
+region_enabled = true
+region_rect = Rect2(446, 38, 6, 7)
+
+[node name="RightArm" type="Sprite2D" parent="Body" unique_id=230044151]
+material = ExtResource("6_12rj4")
+instance_shader_parameters/skin_color = Color(0.9183626, 0.79002416, 0.8007564, 1)
+position = Vector2(-4, -2)
+rotation = 0.2268928
+texture = ExtResource("7_pcywd")
+offset = Vector2(0, 3)
+region_enabled = true
+region_rect = Rect2(441, 49, 4, 9)
+
+[node name="RightLeg" type="Sprite2D" parent="Body" unique_id=1871475346]
+material = ExtResource("6_12rj4")
+instance_shader_parameters/skin_color = Color(0.9183626, 0.79002416, 0.8007564, 1)
+position = Vector2(-2, 4)
+texture = ExtResource("7_pcywd")
+offset = Vector2(0, 3)
+region_enabled = true
+region_rect = Rect2(446, 59, 3, 8)

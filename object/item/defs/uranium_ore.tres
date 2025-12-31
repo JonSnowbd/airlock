@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3 uid="uid://iypng1qafwqv"]
+
+[ext_resource type="Texture2D" uid="uid://c50h6tk6y84vc" path="res://texture/atlas.png" id="1_a2i1i"]
+[ext_resource type="Script" uid="uid://bte8pig3wbvo1" path="res://object/item/item_def.gd" id="2_um3fw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v648n"]
+atlas = ExtResource("1_a2i1i")
+region = Rect2(0, 48, 16, 16)
+
+[resource]
+script = ExtResource("2_um3fw")
+item_icon = SubResource("AtlasTexture_v648n")
+item_name = "Uranium"
+item_desc = "Anyone else feel fuzzy?"
+weight = 0.5
+metadata/_custom_type_script = "uid://bte8pig3wbvo1"

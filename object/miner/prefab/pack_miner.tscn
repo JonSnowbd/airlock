@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bgmwi7jkh0llu"]
+
+[ext_resource type="PackedScene" uid="uid://0le1twb6dwd6" path="res://object/miner/prefab/default_miner.tscn" id="1_ctmm2"]
+[ext_resource type="Script" uid="uid://djwon2blybxcx" path="res://object/miner/actions/action_wander.gd" id="2_8bw7w"]
+[ext_resource type="Script" uid="uid://cmlnir5ioqr28" path="res://object/miner/actions/action_panic_forward.gd" id="3_ghlny"]
+[ext_resource type="Script" uid="uid://d2ukf0vob0o7o" path="res://object/miner/actions/action_pickup.gd" id="4_4djeb"]
+[ext_resource type="Script" uid="uid://ceeekqe48bxxj" path="res://object/miner/actions/action_jack.gd" id="5_8bw7w"]
+[ext_resource type="Texture2D" uid="uid://c50h6tk6y84vc" path="res://texture/atlas.png" id="5_tygto"]
+
+[node name="Miner" unique_id=368430557 node_paths=PackedStringArray("head_sprite") instance=ExtResource("1_ctmm2")]
+miner_unit_name = "Pack Rat"
+stat_perspicacity = 2
+stat_rapidity = 3
+stat_je_ne_sais_quoi = 4
+stat_oxenship = 20
+default_actions = Array[Script]([ExtResource("2_8bw7w"), ExtResource("3_ghlny"), ExtResource("4_4djeb"), ExtResource("5_8bw7w")])
+head_sprite = NodePath("Body/Head")
+
+[node name="Body" parent="." index="3" unique_id=509591827]
+instance_shader_parameters/skin_color = Color(0.95937926, 0.83345467, 0.6221036, 1)
+offset = Vector2(0, 0)
+region_rect = Rect2(446, 12, 7, 10)
+
+[node name="LeftLeg" parent="Body" index="0" unique_id=1477576843]
+instance_shader_parameters/skin_color = Color(0.95937926, 0.83345467, 0.6221036, 1)
+region_rect = Rect2(451, 24, 3, 8)
+
+[node name="LeftArm" parent="Body" index="1" unique_id=251877979]
+instance_shader_parameters/skin_color = Color(0.95937926, 0.83345467, 0.6221036, 1)
+region_rect = Rect2(454, 14, 4, 9)
+
+[node name="Head" parent="Body" index="2" unique_id=830470975]
+instance_shader_parameters/skin_color = Color(0.95937926, 0.83345467, 0.6221036, 1)
+offset = Vector2(1, 0)
+region_rect = Rect2(446, 3, 8, 7)
+
+[node name="RightArm" parent="Body" index="3" unique_id=230044151]
+instance_shader_parameters/skin_color = Color(0.95937926, 0.83345467, 0.6221036, 1)
+region_rect = Rect2(441, 14, 4, 9)
+
+[node name="RightLeg" parent="Body" index="4" unique_id=1871475346]
+instance_shader_parameters/skin_color = Color(0.95937926, 0.83345467, 0.6221036, 1)
+region_rect = Rect2(446, 24, 3, 8)
+
+[node name="Backpack" type="Sprite2D" parent="Body" index="5" unique_id=884520372]
+z_index = -1
+position = Vector2(-2, -1)
+texture = ExtResource("5_tygto")
+region_enabled = true
+region_rect = Rect2(427, 8, 9, 13)

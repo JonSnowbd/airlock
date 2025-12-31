@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cnl3ekjivo67w"]
+
+[ext_resource type="StyleBox" uid="uid://dg6p733c16iou" path="res://texture/stylebox/app_barrier.tres" id="1_e1367"]
+[ext_resource type="Script" uid="uid://bx7m8k4euhkq0" path="res://object/window/application_border.gd" id="1_g78lt"]
+
+[node name="ApplicationBorder" type="CanvasLayer" unique_id=1354727402 node_paths=PackedStringArray("close", "flip", "mute", "units")]
+layer = 4
+script = ExtResource("1_g78lt")
+close = NodePath("ButtonPanel/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Close")
+flip = NodePath("ButtonPanel/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Flip")
+mute = NodePath("ButtonPanel/PanelContainer/MarginContainer/VBoxContainer/Mute")
+units = NodePath("MarginContainer/Units")
+
+[node name="Rim" type="Panel" parent="." unique_id=730051034]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("1_e1367")
+
+[node name="ButtonPanel" type="MarginContainer" parent="." unique_id=191593287]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="ButtonPanel" unique_id=288335615]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ButtonPanel/PanelContainer" unique_id=1999890256]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonPanel/PanelContainer/MarginContainer" unique_id=2103201026]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonPanel/PanelContainer/MarginContainer/VBoxContainer" unique_id=1365838172]
+layout_mode = 2
+
+[node name="Close" type="Button" parent="ButtonPanel/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1624397364]
+layout_mode = 2
+text = "Close"
+
+[node name="Flip" type="Button" parent="ButtonPanel/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=607650750]
+layout_mode = 2
+text = " ^ "
+
+[node name="Mute" type="Button" parent="ButtonPanel/PanelContainer/MarginContainer/VBoxContainer" unique_id=60303967]
+layout_mode = 2
+text = "Mute"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1369118385]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Units" type="HBoxContainer" parent="MarginContainer" unique_id=521330403]
+layout_mode = 2

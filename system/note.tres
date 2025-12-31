@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="NoteDeveloperSettings" format=3 uid="uid://b3dfyg7n0ju6o"]
+
+[ext_resource type="Script" uid="uid://bl3r8847rh3na" path="res://addons/note/resource_type/dev_settings.gd" id="1_lo8kq"]
+[ext_resource type="Script" uid="uid://ccoqbmnhankcb" path="res://addons/note/prefab/panel_screens/journal/journal_document.gd" id="1_wlf02"]
+[ext_resource type="Script" uid="uid://pujdv5md856a" path="res://addons/note/prefab/panel_screens/journal/journal_resource.gd" id="2_w0yy4"]
+[ext_resource type="Script" uid="uid://bj2a8t4pwv0o4" path="res://system/airlock_save.gd" id="3_w0yy4"]
+
+[sub_resource type="Resource" id="Resource_bau3x"]
+script = ExtResource("1_wlf02")
+uuid = "3157e797-8a7d-456c-bb67-857924e3cc65"
+piece_data = Array[Dictionary]([{
+&"_script": "uid://tkfiwacw0387",
+&"_uuid": "4033f316-db8c-4d53-90c1-1252a9e55fbf",
+&"color": "ffffffff",
+&"size": 26.0,
+&"text": "Testing",
+&"title": "FileName"
+}, {
+&"_script": "uid://btvdvje538ery",
+&"_uuid": "34a0c064-b0e4-4e42-ba18-f8246c78862f",
+&"color": "ffffffff",
+&"inset": 0.0,
+&"text": "Thermal Instagram!",
+&"title": ""
+}])
+
+[sub_resource type="Resource" id="Resource_molg3"]
+script = ExtResource("2_w0yy4")
+documents = Array[ExtResource("1_wlf02")]([SubResource("Resource_bau3x")])
+
+[resource]
+script = ExtResource("1_lo8kq")
+initial_scene = "uid://dt1oidigkor2p"
+save_session_type = ExtResource("3_w0yy4")
+developer_journal = SubResource("Resource_molg3")
+metadata/_custom_type_script = "uid://bl3r8847rh3na"

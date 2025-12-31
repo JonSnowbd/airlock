@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DungeonRoomTileData" format=3 uid="uid://bfr1kmmyomw7u"]
+
+[ext_resource type="Script" uid="uid://bnbw1ag35488t" path="res://object/room/dungeon_room_tile_data.gd" id="1_slnlv"]
+
+[resource]
+script = ExtResource("1_slnlv")
+tile_name = "Dirt"
+metadata/_custom_type_script = "uid://bnbw1ag35488t"

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://hmoftd3trbm"]
+
+[ext_resource type="Script" uid="uid://d1krci5g88nv7" path="res://object/miner/widget/miner_view_widget.gd" id="1_sif4l"]
+[ext_resource type="Material" uid="uid://bsgb5jh2g58u6" path="res://texture/material/pixel_skin.tres" id="2_k3s1t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k3s1t"]
+font_size = 12
+
+[node name="MinerViewWidget" type="PanelContainer" unique_id=145302487 node_paths=PackedStringArray("name_label", "avatar_rect", "status_rect", "health", "storage")]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_sif4l")
+name_label = NodePath("MarginContainer/VBoxContainer/NameLabel")
+avatar_rect = NodePath("MarginContainer/VBoxContainer/HBoxContainer/AvatarRect")
+status_rect = NodePath("MarginContainer/VBoxContainer/HBoxContainer/StatusRect")
+health = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Health")
+storage = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Storage")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=605597319]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=797709972]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1154262185]
+layout_mode = 2
+text = "Man mcMann"
+label_settings = SubResource("LabelSettings_k3s1t")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=873672789]
+layout_mode = 2
+
+[node name="AvatarRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1711120837]
+material = ExtResource("2_k3s1t")
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch_mode = 4
+
+[node name="StatusRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=102360512]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2061693013]
+layout_mode = 2
+alignment = 1
+
+[node name="Health" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=723564765]
+self_modulate = Color(0.43, 1, 0.6295001, 1)
+custom_minimum_size = Vector2(90, 7)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+show_percentage = false
+
+[node name="Storage" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1064327662]
+self_modulate = Color(1, 0.952, 0.52, 1)
+custom_minimum_size = Vector2(90, 7)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+show_percentage = false
