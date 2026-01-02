@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://55o02ka4sd1"]
+
+[ext_resource type="PackedScene" uid="uid://k7kf706i87f8" path="res://addons/note/ENTRY.tscn" id="1_mtnu7"]
+
+[node name="Entry" unique_id=1179327049 instance=ExtResource("1_mtnu7")]

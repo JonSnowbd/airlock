@@ -8,29 +8,14 @@ var current_rooms: Array[DungeonRoom]
 var current_windows: Array[GameWindow] = []
 var crew: Array[Miner] = []
 
+var ending: bool = false
+var cam_pos = 0.0
+
 func sync_window_settings():
+	if ending: return
 	var save = note.save as AirlockSave
 	if save == null: return
-	var safe = DisplayServer.screen_get_usable_rect()
-	var window = get_window()
-	window.size.y = (16.0*8.0)*save.zoom
-	window.size.x = safe.size.x
-	window.position.x = safe.position.x
-	cam.zoom = Vector2(save.zoom, save.zoom)
-	
-	if save.top_side:
-		window.position.y = safe.position.y
-	else:
-		window.position.y = safe.size.y-window.size.y
-	
-	var stamp = 10.0
-	for c in current_windows:
-		c.position.x = window.position.x+int(stamp)
-		if save.top_side:
-			c.position.y = int(window.position.y-window.size.y+10.0)
-		else:
-			c.position.y = int(window.position.y-c.size.y-10.0)
-		stamp += c.size.x+10.0
+	AirlockUtil.set_window(cam, cam_pos, initial_room, save.zoom, save.top_side, current_windows)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,22 +31,22 @@ func _ready() -> void:
 	var r = initial_room
 	for i in range(12):
 		r = r.generate_next_area()
+		if r.ending_room:
+			break
 
 	for miner: MinerSerialization in save.team:
-		var inst = miner.hydrate()
-		inst.cooldown = 2.0
 		var spot = initial_room.spawns.pick_random()
+		var inst = miner.hydrate()
 		initial_room.spawns.erase(spot)
 		add_child(inst)
 		inst.global_position = spot.global_position
+		inst.cooldown = 2.0
 		crew.append(inst)
-		border.start_watching(inst)
 	
 	for miner in crew:
 		for other in crew:
 			if other != miner:
 				miner.crew.append(other)
-	
 	note.time()
 
 func create_new_window(prefab_uid: String) -> GameWindow:
@@ -77,10 +62,24 @@ func create_new_window(prefab_uid: String) -> GameWindow:
 	return new_window
 
 func _physics_process(delta: float) -> void:
+	if ending: return
 	sync_window_settings()
 	cam.position.y = 0.0
 	cam.position.x += 7.0*delta
-
+	var is_done = len(crew) > 0
+	for c in crew:
+		if c.extracted: continue
+		is_done = false
+		if c.global_position.y > 600.0:
+			extract_miner(c)
+	if is_done:
+		ending = true
+		finish()
+	
+func finish():
+	await get_tree().create_timer(2.0).timeout
+	note.level.change_to("uid://cnb5kyc4eoky2", true)
+	note.transition.trigger(0.75)
 func _unhandled_input(event: InputEvent) -> void:
 	var save = note.save as AirlockSave
 	if save == null: return
@@ -91,3 +90,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			save.zoom = clamp(save.zoom-0.1, 1.5, 5.0)
 			get_viewport().set_input_as_handled()
+
+func extract_miner(target: Miner):
+	target.extracted = true
+	for a in target.action_list:
+		a.action_extracted()

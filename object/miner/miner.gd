@@ -56,6 +56,8 @@ var stagnant_jumps: Array[float] = []
 var max_health: float = 0.0
 var current_health: float = 0.0
 
+var extracted: bool = false
+
 var push_animation: String = "" :
 	set(val):
 		push_animation = val

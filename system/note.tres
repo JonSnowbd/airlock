@@ -30,7 +30,7 @@ documents = Array[ExtResource("1_wlf02")]([SubResource("Resource_bau3x")])
 
 [resource]
 script = ExtResource("1_lo8kq")
-initial_scene = "uid://dt1oidigkor2p"
+initial_scene = "uid://cnb5kyc4eoky2"
 save_session_type = ExtResource("3_w0yy4")
 developer_journal = SubResource("Resource_molg3")
 metadata/_custom_type_script = "uid://bl3r8847rh3na"

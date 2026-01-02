@@ -14,6 +14,6 @@ void fragment() {
 		COLOR.rgb = skin_color*COLOR.r;
 	}
 	if(COLOR.r == 0.0 && COLOR.b == 0.0) {
-		COLOR.rgb = hair_color*COLOR.g;
+		COLOR.rgb = mix(skin_color, hair_color, COLOR.g);
 	}
 }

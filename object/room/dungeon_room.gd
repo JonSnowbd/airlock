@@ -46,8 +46,12 @@ func get_ore_data(world_position: Vector2, collision_normal: Vector2) -> OreDeta
 	return ore_details
 
 func does_tile_exist(ind: Vector2i) -> bool:
-	return get_cell_tile_data(ind) != null or ore_layer.get_cell_tile_data(ind) != null
+	if ore_layer != null:
+		return get_cell_tile_data(ind) != null or ore_layer.get_cell_tile_data(ind) != null
+	else:
+		return get_cell_tile_data(ind) != null
 
 func destroy_tile_at(ind: Vector2i):
 	set_cell(ind)
-	ore_layer.set_cell(ind)
+	if ore_layer != null:
+		ore_layer.set_cell(ind)
